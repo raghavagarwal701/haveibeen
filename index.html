@@ -27,21 +27,22 @@
 
 
                     for(let i = 0; i<hashes.length; i++){
-
+                        
                         var hash = hashes[i];
                         var h = hash.split(':');
 
-
+                        
+                        // console.log(h[0],suffix);
                         if(h[0] === suffix){
-
-                            $("result").html("The password has been breached" + h[1] + " times.");
+                            $("#result").html("The password has been breached" + h[1] + " times.");
                             breached = true;
                             break;
                         }
                     }
-
-                    if(!breached)
-                            $("result").html("The password has not been breached.")
+                    // console.log("breached=",breached);
+                    if(!breached){
+                        $("#result").html("The password has not been breached.")
+                    }
                 })
 
             });
