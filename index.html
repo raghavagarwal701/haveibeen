@@ -6,28 +6,19 @@
     <title>HaveIBeenPwnedAPI</title>
 </head>
 <body>
-
     <h2>Enter the password: </h2> 
     <input type="password" id="password" />
     <input type="button" id="button" value="Submit" />
     <div id="result"></div>
-
-    <script src="https://ajax.googleaapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="sha1.js"></script>
-    
-
     <script>
-
         $(function(){
             $("#button").on("click", function(){
-
                 var sha = sha1($("#password").val()).toUpperCase();
                 var prefix = sha.substring(0,5);
                 var suffix = sha.substring(5, sha.length);
-
-
                 $.ajax({
-
                     url: "https://api.pwnedpasswords.com/range/" + prefix
                 }).done(function(response) {
 
